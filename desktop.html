@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<!-- Copyright (C) Claus Schrammel <claus@f05fk.net>                       -->
+<!--                                                                       -->
+<!-- This program is free software: you can redistribute it and/or modify  -->
+<!-- it under the terms of the GNU General Public License as published by  -->
+<!-- the Free Software Foundation, either version 3 of the License, or     -->
+<!-- (at your option) any later version.                                   -->
+<!--                                                                       -->
+<!-- This program is distributed in the hope that it will be useful,       -->
+<!-- but WITHOUT ANY WARRANTY; without even the implied warranty of        -->
+<!-- MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the         -->
+<!-- GNU General Public License for more details.                          -->
+<!--                                                                       -->
+<!-- You should have received a copy of the GNU General Public License     -->
+<!-- along with this program.  If not, see <http://www.gnu.org/licenses/>. -->
+<!--                                                                       -->
+<!-- SPDX-License-Identifier: GPL-3.0-or-later                             -->
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -->
+<html>
+  <head>
+    <title>Desktop</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="SourceCodePro.css">
+  </head>
+  <body style="background-color: #004780; margin: 0; overflow: hidden;" oncontextmenu="return false;">
+
+    <img src="christmastree.png"
+         width="400" height="400" style="position: absolute; bottom: 70px; right: 300px; z-index: -2"/>
+
+    <canvas id="snow" width="100%" height="100%" style="z-index: -1"></canvas>
+    <img id="snowflake1" src="snowflake1.png" style="display: none"/>
+    <img id="snowflake2" src="snowflake2.png" style="display: none"/>
+    <img id="snowflake3" src="snowflake3.png" style="display: none"/>
+    <img id="snowflake4" src="snowflake4.png" style="display: none"/>
+    <img id="snowflake5" src="snowflake5.png" style="display: none"/>
+    <img id="snowflake6" src="snowflake6.png" style="display: none"/>
+    <img id="snowflake7" src="snowflake7.png" style="display: none"/>
+    <img id="snowflake8" src="snowflake8.png" style="display: none"/>
+    <script src="snow.js"></script>
+
+    <canvas id="clock" width="200" height="200" style="position: absolute; top: 50px; right: 50px; z-index: 1"></canvas>
+    <script src="clock.js"></script>
+
+    <canvas id="clock10hrs" width="200" height="200" style="position: absolute; top: 300px; right: 50px; z-index: 1"></canvas>
+    <script src="clock10hrs.js"></script>
+
+    <div style="position: absolute; bottom: 70px; right: 50px; z-index: 1">
+      <span id="date">yyyy-mm-dd</span><br/>
+      <span>&nbsp;</span><span id="time">hh:mm:ss</span><br/>
+      <span>&nbsp;&nbsp;</span><span id="time10hrs">h.mmss</span>
+    </div>
+    <script src="date.js"></script>
+
+  </body>
+</html>

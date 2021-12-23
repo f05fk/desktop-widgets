@@ -162,3 +162,8 @@ A snowing animation. The snowflakes are not included here either. For developmen
 * https://assets.codepen.io/13471/snowflake(8).png
 
 were used.
+
+## All-in-One: desktop
+
+The desktop.html has all widgets above in order to have transparency in the clock widgets and snowflakes falling
+through the clocks.
