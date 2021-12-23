@@ -147,3 +147,18 @@ time can be written as a decimal and it is possible to simply add two time spans
 Writes the current date, the current time and the current time in decimal 10-hour notation. It uses the font
 SourceCodePro. It is not included here. Please download it from
 [GitHub](https://github.com/adobe-fonts/source-code-pro).
+
+## Widget: snow
+
+A snowing animation. The snowflakes are not included here either. For development the snowflakes from
+
+* https://assets.codepen.io/13471/snowflake(1).png
+* https://assets.codepen.io/13471/snowflake(2).png
+* https://assets.codepen.io/13471/snowflake(3).png
+* https://assets.codepen.io/13471/snowflake(4).png
+* https://assets.codepen.io/13471/snowflake(5).png
+* https://assets.codepen.io/13471/snowflake(6).png
+* https://assets.codepen.io/13471/snowflake(7).png
+* https://assets.codepen.io/13471/snowflake(8).png
+
+were used.
