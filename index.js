@@ -19,7 +19,13 @@ app.whenReady().then(() => {
 //  newWidget(-50, -70, 300, 100, 'date.html');
 });
 
-function newWidget(x, y, width, height, url) {
+function newWindow(x, y, width, height, url) {
+  if (width < 1 || width > screenwidth) {
+    width = screenwidth;
+  }
+  if (height < 1 || height > screenheight) {
+    height = screenheight;
+  }
   if (x < 0) {
     x = screenwidth - width + x;
   }
