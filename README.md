@@ -131,7 +131,14 @@ So I finally patched `lib.cc` from electron-disable-minimize:
 There is one known issue left: Killing the process leaves black rectangles on the Desktop that only disappear
 after a reboot of the system.
 
-## The Clock
+## Widget: clock
 
 The JavaScript code for the clock is based on the example from the
 [MDN tutorial](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Basic_animations).
+
+## Widget: clock10hrs
+
+The JavaScript code for the 10-hour clock is also based on the example from Mozilla.
+This is a 10-hour clock where one day has 10 hours, one hour 100 minutes and one minute 100 seconds. Thus a specific
+time can be written as a decimal and it is possible to simply add two time spans, e.g. "8.2379".
+
