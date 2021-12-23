@@ -1,0 +1,11 @@
+@font-face {
+    font-family: 'SourceCodePro';
+        src: url('SourceCodePro-Black.otf.woff') format('woff');
+    font-weight: black;
+    font-style: regular;
+}
+
+span {
+    font-family: 'SourceCodePro';
+    font-size: xx-large;
+}

@@ -142,3 +142,8 @@ The JavaScript code for the 10-hour clock is also based on the example from Mozi
 This is a 10-hour clock where one day has 10 hours, one hour 100 minutes and one minute 100 seconds. Thus a specific
 time can be written as a decimal and it is possible to simply add two time spans, e.g. "8.2379".
 
+## Widget: date
+
+Writes the current date, the current time and the current time in decimal 10-hour notation. It uses the font
+SourceCodePro. It is not included here. Please download it from
+[GitHub](https://github.com/adobe-fonts/source-code-pro).

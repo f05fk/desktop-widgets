@@ -14,9 +14,9 @@ app.whenReady().then(() => {
   screenwidth = electron.screen.getPrimaryDisplay().size.width;
   screenheight = electron.screen.getPrimaryDisplay().size.height;
 
-  newWidget(-50,  50, 200, 200, 'clock.html');
-  newWidget(-50, 300, 200, 200, 'clock10hrs.html');
-//  newWidget(-50, -70, 300, 100, 'date.html');
+  newWindow(-50,  50, 200, 200, 'clock.html');
+  newWindow(-50, 300, 200, 200, 'clock10hrs.html');
+  newWindow(-50, -70, 192, 120, 'date.html');
 });
 
 function newWindow(x, y, width, height, url) {
