@@ -17,25 +17,21 @@
  * SPDX-License-Identifier: GPL-3.0-or-later                             *
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-const speed = 0.1;
-const numflakes = 500;
-const snowflakes = [];
+var SnowAnimation = {};
 
-initSnowflakes();
-window.requestAnimationFrame(animateSnow);
-
-function initSnowflakes() {
+SnowAnimation.initSnowflakes = function() {
   var canvas = document.getElementById("snow");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
-  for (let i = 0; i < numflakes; i++) {
-    snowflakes[i] = {};
-    resetSnowflake(snowflakes[i], canvas, true);
+  SnowAnimation.snowflakes = [];
+  for (let i = 0; i < 500; i++) {
+    SnowAnimation.snowflakes[i] = {};
+    SnowAnimation.resetSnowflake(SnowAnimation.snowflakes[i], canvas, true);
   }
 }
 
-function resetSnowflake(snowflake, canvas, init) {
+SnowAnimation.resetSnowflake = function(snowflake, canvas, init) {
   snowflake.i = Math.floor(Math.random() * 8) + 1;
   snowflake.d = Math.floor(Math.random() * 9) + 4;
   snowflake.s = snowflake.d * 2 + 1;
@@ -46,7 +42,7 @@ function resetSnowflake(snowflake, canvas, init) {
   snowflake.hv = 0;
 }
 
-function animateSnow() {
+SnowAnimation.animateSnow = function() {
   var canvas = document.getElementById("snow");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
@@ -55,34 +51,32 @@ function animateSnow() {
   ctx.save();
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-//  ctx.lineWidth = 2;
-//  ctx.strokeStyle = 'white';
-//  ctx.fillStyle = "white";
-
-  for (let i = 0; i < numflakes; i++) {
-    snowflakes[i].ap += snowflakes[i].av;
-    snowflakes[i].hv += (Math.random() * snowflakes[i].s - snowflakes[i].d - 0.5 - snowflakes[i].hv) * 0.03;
-    snowflakes[i].x += snowflakes[i].hv;
-    snowflakes[i].y += Math.random() * snowflakes[i].d * speed;
-    if (snowflakes[i].x < -snowflakes[i].d) {
-      snowflakes[i].x = canvas.width + snowflakes[i].d;
+  for (let i = 0; i < SnowAnimation.snowflakes.length; i++) {
+    SnowAnimation.snowflakes[i].ap += SnowAnimation.snowflakes[i].av;
+    SnowAnimation.snowflakes[i].hv += (Math.random() * SnowAnimation.snowflakes[i].s - SnowAnimation.snowflakes[i].d - 0.5 - SnowAnimation.snowflakes[i].hv) * 0.03;
+    SnowAnimation.snowflakes[i].x += SnowAnimation.snowflakes[i].hv;
+    SnowAnimation.snowflakes[i].y += Math.random() * SnowAnimation.snowflakes[i].d * 0.1;
+    if (SnowAnimation.snowflakes[i].x < -SnowAnimation.snowflakes[i].d) {
+      SnowAnimation.snowflakes[i].x = canvas.width + SnowAnimation.snowflakes[i].d;
     }
-    if (snowflakes[i].x > canvas.width + snowflakes[i].d) {
-      snowflakes[i].x = -snowflakes[i].d;
+    if (SnowAnimation.snowflakes[i].x > canvas.width + SnowAnimation.snowflakes[i].d) {
+      SnowAnimation.snowflakes[i].x = -SnowAnimation.snowflakes[i].d;
     }
-    if (snowflakes[i].y > canvas.height + snowflakes[i].d) {
-      resetSnowflake(snowflakes[i], canvas, false);
+    if (SnowAnimation.snowflakes[i].y > canvas.height + SnowAnimation.snowflakes[i].d) {
+      SnowAnimation.resetSnowflake(SnowAnimation.snowflakes[i], canvas, false);
     }
 
-    var img = document.getElementById("snowflake" + snowflakes[i].i);
-//    ctx.drawImage(img, snowflakes[i].x, snowflakes[i].y, snowflakes[i].s, snowflakes[i].s);
+    var img = document.getElementById("snowflake" + SnowAnimation.snowflakes[i].i);
 
     ctx.save();
-    ctx.translate(snowflakes[i].x, snowflakes[i].y);
-    ctx.rotate(snowflakes[i].ap);
-    ctx.drawImage(img, -snowflakes[i].d, -snowflakes[i].d, snowflakes[i].s, snowflakes[i].s);
+    ctx.translate(SnowAnimation.snowflakes[i].x, SnowAnimation.snowflakes[i].y);
+    ctx.rotate(SnowAnimation.snowflakes[i].ap);
+    ctx.drawImage(img, -SnowAnimation.snowflakes[i].d, -SnowAnimation.snowflakes[i].d, SnowAnimation.snowflakes[i].s, SnowAnimation.snowflakes[i].s);
     ctx.restore();
   }
   ctx.restore();
-  window.requestAnimationFrame(animateSnow);
+  window.requestAnimationFrame(SnowAnimation.animateSnow);
 }
+
+SnowAnimation.initSnowflakes();
+window.requestAnimationFrame(SnowAnimation.animateSnow);
