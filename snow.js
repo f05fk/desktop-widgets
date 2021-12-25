@@ -21,25 +21,29 @@ const speed = 0.1;
 const numflakes = 500;
 const snowflakes = [];
 
-initSnow();
+initSnowflakes();
 window.requestAnimationFrame(animateSnow);
 
-function initSnow() {
+function initSnowflakes() {
   var canvas = document.getElementById("snow");
   canvas.width = window.innerWidth;
   canvas.height = window.innerHeight;
 
   for (let i = 0; i < numflakes; i++) {
     snowflakes[i] = {};
-    snowflakes[i].i = Math.floor(Math.random() * 8) + 1;
-    snowflakes[i].x = Math.floor(Math.random() * canvas.width);
-    snowflakes[i].y = Math.floor(Math.random() * canvas.height);
-    snowflakes[i].d = Math.floor(Math.random() * 9) + 4;
-    snowflakes[i].s = snowflakes[i].d * 2 + 1;
-    snowflakes[i].av = Math.random() * 0.06 - 0.03;
-    snowflakes[i].ap = 0;
-    snowflakes[i].hv = 0;
+    resetSnowflake(snowflakes[i], canvas, true);
   }
+}
+
+function resetSnowflake(snowflake, canvas, init) {
+  snowflake.i = Math.floor(Math.random() * 8) + 1;
+  snowflake.d = Math.floor(Math.random() * 9) + 4;
+  snowflake.s = snowflake.d * 2 + 1;
+  snowflake.x = Math.floor(Math.random() * canvas.width);
+  snowflake.y = init ? Math.floor(Math.random() * canvas.height) : -snowflake.d;
+  snowflake.av = Math.random() * 0.06 - 0.03;
+  snowflake.ap = 0;
+  snowflake.hv = 0;
 }
 
 function animateSnow() {
@@ -67,14 +71,7 @@ function animateSnow() {
       snowflakes[i].x = -snowflakes[i].d;
     }
     if (snowflakes[i].y > canvas.height + snowflakes[i].d) {
-      snowflakes[i].i = Math.floor(Math.random() * 8) + 1;
-      snowflakes[i].x = Math.floor(Math.random() * canvas.width);
-      snowflakes[i].y = -snowflakes[i].d;
-      snowflakes[i].d = Math.floor(Math.random() * 9) + 4;
-      snowflakes[i].s = snowflakes[i].d * 2 + 1;
-      snowflakes[i].av = Math.random() * 0.06 - 0.03;
-      snowflakes[i].ap = 0;
-      snowflakes[i].hv = 0;
+      resetSnowflake(snowflakes[i], canvas, false);
     }
 
     var img = document.getElementById("snowflake" + snowflakes[i].i);
